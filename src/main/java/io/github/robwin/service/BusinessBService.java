@@ -3,7 +3,7 @@ package io.github.robwin.service;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
-import io.github.resilience4j.circuitbreaker.operator.CircuitBreakerOperator;
+//import io.github.resilience4j.circuitbreaker.operator.CircuitBreakerOperator;
 import io.github.robwin.connnector.Connector;
 import io.reactivex.Observable;
 import io.vavr.control.Try;
@@ -50,12 +50,12 @@ public class BusinessBService implements BusinessService  {
                 .recover((throwable) -> recovery(throwable));
     }
 
-    public Observable<String> methodWhichReturnsAStream() {
-        CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker("backendB");
-        return backendBConnector.methodWhichReturnsAStream()
-                .timeout(1, TimeUnit.SECONDS)
-                .compose(CircuitBreakerOperator.of(circuitBreaker));
-    }
+//    public Observable<String> methodWhichReturnsAStream() {
+//        CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker("backendB");
+//        return backendBConnector.methodWhichReturnsAStream()
+//                .timeout(1, TimeUnit.SECONDS)
+//                .compose(CircuitBreakerOperator.of(circuitBreaker));
+//    }
 
     private String recovery(Throwable throwable) {
         // Handle exception and invoke fallback

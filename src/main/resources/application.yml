@@ -3,7 +3,7 @@ spring:
     jackson.serialization.indent_output: true
 
 server:
-    port: 9080
+    port: 8080
 
 management:
     contextPath: /management
